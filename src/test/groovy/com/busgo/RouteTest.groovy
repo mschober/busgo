@@ -28,7 +28,7 @@ class RouteTest {
         def bus = new Bus()
         assert bus
 
-        //route.register(bus)
-        //assert route.assignedBus() == bus
+        route.register(bus)
+        assert route.assignedBus() == bus
     }
 }
