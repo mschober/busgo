@@ -1,7 +1,10 @@
 package com.busgo
 
 class Route {
-    def show() {
-        println 'Hello World'
+
+    private def stops
+
+    Route(def stops) {
+        this.stops = stops
     }
 }
