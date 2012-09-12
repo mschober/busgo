@@ -2,9 +2,17 @@ package com.busgo
 
 import groovy.util.GroovyTestCase
 import org.junit.Test
+import org.junit.Before
 
 class RouteTest {
 
+
+    def theRoute
+
+    @Before
+    public void setup() {
+        theRoute = new Route([0, 5, 4], new Bus())
+    }
 
     @Test
     public void createBasicThreeStopRoute() {
@@ -30,5 +38,11 @@ class RouteTest {
 
         route.register(bus)
         assert route.assignedBus() == bus
+    }
+
+
+    @Test
+    public void busNotfiesRouteWhenLeavingStop() {
+
     }
 }

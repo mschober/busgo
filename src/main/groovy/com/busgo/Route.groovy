@@ -2,11 +2,28 @@ package com.busgo
 
 class Route {
 
-    private def stops
-    private def bus
+    private List stops
+    private Bus bus
 
-    Route(def stops) {
+    Route() {
+        this(null, null)
+    }
+
+    Route(List stops) {
+        this(stops, null)
+    }
+
+    Route(List stops, Bus bus) {
         this.stops = stops
+        register(bus)
+    }
+
+    def register(def bus) {
+        this.bus = bus
+    }
+
+    def assignedBus() {
+        return bus
     }
 
     def numberOfStops() {
@@ -21,11 +38,4 @@ class Route {
         stops.inject(0) { time1, time2 -> time1 + time2 }
     }
 
-    def register(def bus) {
-        this.bus = bus
-    }
-
-    def assignedBus() {
-        return bus
-    }
 }
