@@ -19,16 +19,4 @@ class RouteTest {
         assert route.totalTime() == 9
     }
 
-
-    @Test
-    public void registerBusWithRoute() {
-        def route = new Route()
-        assert route
-
-        def bus = new Bus()
-        assert bus
-
-        //route.register(bus)
-        //assert route.assignedBus() == bus
-    }
 }
