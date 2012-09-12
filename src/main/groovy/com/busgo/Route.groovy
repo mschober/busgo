@@ -15,4 +15,8 @@ class Route {
     def timeBetween(def stop1, def stop2) {
         return stops.get(stop2)
     }
+
+    def totalTime() {
+        stops.inject(0) { time1, time2 -> time1 + time2 }
+    }
 }
