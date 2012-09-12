@@ -7,4 +7,8 @@ class Route {
     Route(def stops) {
         this.stops = stops
     }
+
+    def numberOfStops() {
+        return stops.size()
+    }
 }
