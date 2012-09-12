@@ -1,10 +1,12 @@
 package com.busgo
 
 import groovy.util.GroovyTestCase
+import org.junit.Test
 
-class RouteTest extends GroovyTestCase {
+class RouteTest {
 
-    void testShow() {
+    @Test
+    public void testShow() {
         new Example().show()
     }
 }
