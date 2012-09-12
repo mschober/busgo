@@ -47,5 +47,6 @@ class RouteTest {
         assert bus.currentStop() == theRoute.stop(0)
         bus.leaveStop()
         assert bus.currentStop() == theRoute.stop(1)
+        assert bus.timeTillNextStop() == theRoute.timeBetween(1, 2)
     }
 }

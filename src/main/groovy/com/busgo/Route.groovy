@@ -22,6 +22,7 @@ class Route {
 
     def register(def bus) {
         this.bus = bus
+        bus?.register(this)
     }
 
     def assignedBus() {
