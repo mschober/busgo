@@ -14,6 +14,10 @@ class Bus {
         this.route = route
     }
 
+    def assignedRoute() {
+        return route
+    }
+
     def currentStop() {
         return this.currentStop
     }

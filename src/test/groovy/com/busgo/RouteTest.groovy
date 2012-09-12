@@ -38,6 +38,7 @@ class RouteTest {
 
         route.register(bus)
         assert route.assignedBus() == bus
+        assert bus.assignedRoute() == route
     }
 
 
