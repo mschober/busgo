@@ -11,4 +11,8 @@ class Route {
     def numberOfStops() {
         return stops.size()
     }
+
+    def timeBetween(def stop1, def stop2) {
+        return stops.get(stop2)
+    }
 }
