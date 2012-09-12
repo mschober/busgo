@@ -21,7 +21,11 @@ class Bus {
     }
 
     def currentStop() {
-        return timeTillNextStop() == route.timeBetween(currentStop, nextStop()) ? currentStop : "En route"
+        return !enRoute()? currentStop : "En route"
+    }
+
+    def enRoute() {
+        true
     }
 
     def nextStop() {
@@ -34,5 +38,9 @@ class Bus {
 
     def timeTillNextStop() {
         return route.timeBetween(currentStop, nextStop()) - timeElapsedFromLastStop
+    }
+
+    def closeDoor() {
+        leaveStop()
     }
 }
