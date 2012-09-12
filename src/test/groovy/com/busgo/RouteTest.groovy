@@ -43,6 +43,9 @@ class RouteTest {
 
     @Test
     public void busNotfiesRouteWhenLeavingStop() {
-
+        def bus = theRoute.assignedBus()
+        assert bus.currentStop() == theRoute.stop(0)
+        bus.leaveStop()
+        assert bus.currentStop() == theRoute.stop(1)
     }
 }

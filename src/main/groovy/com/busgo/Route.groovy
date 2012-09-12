@@ -3,6 +3,7 @@ package com.busgo
 class Route {
 
     private List stops
+    private currentStop
     private Bus bus
 
     Route() {
@@ -16,6 +17,7 @@ class Route {
     Route(List stops, Bus bus) {
         this.stops = stops
         register(bus)
+        this.currentStop = 0
     }
 
     def register(def bus) {
@@ -38,4 +40,7 @@ class Route {
         stops.inject(0) { time1, time2 -> time1 + time2 }
     }
 
+    def stop(int stop) {
+        return stop
+    }
 }
