@@ -32,16 +32,12 @@ class Bus {
         return currentStop + 1
     }
 
-    def leaveStop() {
+    def closeDoor() {
         currentStop++
     }
 
     def estimatedTimeTillNextStop() {
         return route.timeBetween(currentStop, nextStop()) - timeElapsedFromLastStop
-    }
-
-    def closeDoor() {
-        leaveStop()
     }
 
     @Override
