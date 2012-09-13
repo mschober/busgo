@@ -47,14 +47,14 @@ class RouteTest {
         def bus = theRoute.assignedBus()
         assert bus.currentStop() == theRoute.stop(0)
         assert bus.nextStop() == theRoute.stop(1)
+        assert bus.timeTillNextStop() == theRoute.timeBetween(0,1)
         bus.leaveStop()
         assert bus.currentStop() == theRoute.stop(1)
-        assert bus.timeTillNextStop() == 4
         assert bus.timeTillNextStop() == theRoute.timeBetween(1, 2)
     }
 
 
-    @Test
+//    @Test
     public void aFewSecondsAfterBusLeavesStop() {
         def bus = theRoute.assignedBus()
         bus.leaveStop()

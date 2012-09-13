@@ -21,11 +21,11 @@ class Bus {
     }
 
     def currentStop() {
-        return !enRoute()? currentStop : "En route"
+        return currentStop
     }
 
     def enRoute() {
-        true
+        false
     }
 
     def nextStop() {
