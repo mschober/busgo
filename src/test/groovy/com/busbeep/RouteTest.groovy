@@ -73,7 +73,7 @@ class RouteTest {
         assert theRoute.subscribers() == 0
     }
 
-    //@Test
+    @Test
     public void catcherCanSubscribe() {
         def catcher = new Catcher()
         assert catcher

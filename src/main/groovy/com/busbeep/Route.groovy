@@ -58,9 +58,9 @@ class Route {
         return subscriberCount.sum()
     }
 
-   // def subscribers(stop) {
-   //     return subscribers.get(stop)
-   // }
+    def subscribers(stop) {
+        return subscribers.get(stop)
+    }
 
     @Override
     public String toString() {
