@@ -4,6 +4,7 @@ class Route {
 
     private List stops
     private Bus bus
+    private def subscribers = []
 
     Route() {
         this(null, null)
@@ -15,6 +16,11 @@ class Route {
 
     Route(List stops, Bus bus) {
         this.stops = stops
+
+        for(def i = 0; i < stops?.size(); i++) {
+            subscribers << []
+        }
+
         register(bus)
     }
 
@@ -36,15 +42,30 @@ class Route {
     }
 
     def totalTime() {
-        stops.inject(0) { time1, time2 -> time1 + time2 }
+        stops.sum()//inject(0) { time1, time2 -> time1 + time2 }
     }
 
     def stop(int stop) {
         return stop
     }
 
+    def subscribe(def catcher, def stop) {
+        subscribers.get(stop) << catcher
+    }
+
+    def subscribers() {
+        def subscriberCount = subscribers.collect{ it.size() }
+        return subscriberCount.sum()
+    }
+
+   // def subscribers(stop) {
+   //     return subscribers.get(stop)
+   // }
+
     @Override
     public String toString() {
-        return "Route ${stops} ${bus}"
+        return """ Route ${stops} ${bus}
+ Subscribers: ${subscribers}
+               """
     }
 }

@@ -8,10 +8,12 @@ class RouteTest {
 
 
     def theRoute
+    def bus
 
     @Before
     public void setup() {
         theRoute = new Route([0, 5, 4], new Bus())
+        bus = theRoute.assignedBus()
     }
 
     @Test
@@ -44,7 +46,6 @@ class RouteTest {
 
     @Test
     public void busNotfiesRouteWhenLeavingStop() {
-        def bus = theRoute.assignedBus()
         assert bus.currentStop() == theRoute.stop(0)
         assert bus.nextStop() == theRoute.stop(1)
         assert bus.estimatedTimeTillNextStop() == theRoute.timeBetween(0,1)
@@ -56,12 +57,32 @@ class RouteTest {
 
     @Test
     public void aFewSecondsAfterBusLeavesStop() {
-        def bus = theRoute.assignedBus()
-        bus.closeDoor()
+        assert bus.estimatedTimeTillNextStop() == theRoute.timeBetween(0,1)
         bus.timeElapsedFromLastStop = 2
-        assert bus.estimatedTimeTillNextStop() == theRoute.timeBetween(1,2) - 2
-        assert bus.currentStop() == theRoute.stop(1)
+        assert bus.estimatedTimeTillNextStop() == theRoute.timeBetween(0,1) - 2
+        assert bus.currentStop() == theRoute.stop(0)
+
         bus.closeDoor()
-        assert bus.currentStop() == theRoute.stop(2)
+
+        assert bus.currentStop() == theRoute.stop(1)
+    }
+
+    @Test
+    public void stopsHaveSubscribers() {
+        assert theRoute.subscribers.size() == 3
+        assert theRoute.subscribers() == 0
+    }
+
+    //@Test
+    public void catcherCanSubscribe() {
+        def catcher = new Catcher()
+        assert catcher
+
+        catcher.subscribe(theRoute, 2)
+        assert catcher.stop() == 2
+        assert catcher.route() == theRoute
+        theRoute.subscribers() == 1
+        theRoute.subscribers(1) == 0
+        theRoute.subscribers(2) == 1
     }
 }

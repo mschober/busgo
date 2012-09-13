@@ -9,7 +9,7 @@
 
     <groupId>com.busbeep</groupId>
     <artifactId>busbeep</artifactId>
-    <name>Bus Go</name>
+    <name>Bus Beep</name>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
