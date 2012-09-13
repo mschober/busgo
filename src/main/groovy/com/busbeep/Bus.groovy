@@ -43,4 +43,9 @@ class Bus {
     def closeDoor() {
         leaveStop()
     }
+
+    @Override
+    public String toString() {
+       return "Bus CurrentStop(${currentStop})"
+    }
 }

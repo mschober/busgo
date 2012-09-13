@@ -3,7 +3,6 @@ package com.busbeep
 class Route {
 
     private List stops
-    private currentStop
     private Bus bus
 
     Route() {
@@ -17,7 +16,6 @@ class Route {
     Route(List stops, Bus bus) {
         this.stops = stops
         register(bus)
-        this.currentStop = 0
     }
 
     def register(def bus) {
@@ -43,5 +41,10 @@ class Route {
 
     def stop(int stop) {
         return stop
+    }
+
+    @Override
+    public String toString() {
+        return "Route ${stops} ${bus}"
     }
 }

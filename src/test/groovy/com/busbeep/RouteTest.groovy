@@ -59,8 +59,6 @@ class RouteTest {
         def bus = theRoute.assignedBus()
         bus.leaveStop()
         bus.timeElapsedFromLastStop = 2
-        println bus.currentStop()
-        println bus.currentStop
         assert bus.timeTillNextStop() == theRoute.timeBetween(1,2) - 2
         assert bus.currentStop() == "En route"
         bus.closeDoor()
