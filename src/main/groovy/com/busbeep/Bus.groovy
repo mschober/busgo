@@ -36,7 +36,7 @@ class Bus {
         currentStop++
     }
 
-    def timeTillNextStop() {
+    def estimatedTimeTillNextStop() {
         return route.timeBetween(currentStop, nextStop()) - timeElapsedFromLastStop
     }
 

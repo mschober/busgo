@@ -47,10 +47,10 @@ class RouteTest {
         def bus = theRoute.assignedBus()
         assert bus.currentStop() == theRoute.stop(0)
         assert bus.nextStop() == theRoute.stop(1)
-        assert bus.timeTillNextStop() == theRoute.timeBetween(0,1)
+        assert bus.estimatedTimeTillNextStop() == theRoute.timeBetween(0,1)
         bus.leaveStop()
         assert bus.currentStop() == theRoute.stop(1)
-        assert bus.timeTillNextStop() == theRoute.timeBetween(1, 2)
+        assert bus.estimatedTimeTillNextStop() == theRoute.timeBetween(1, 2)
     }
 
 
@@ -59,9 +59,12 @@ class RouteTest {
         def bus = theRoute.assignedBus()
         bus.leaveStop()
         bus.timeElapsedFromLastStop = 2
-        assert bus.timeTillNextStop() == theRoute.timeBetween(1,2) - 2
+        assert bus.estimatedTimeTillNextStop() == theRoute.timeBetween(1,2) - 2
         assert bus.currentStop() == theRoute.stop(1)
         bus.closeDoor()
         assert bus.currentStop() == theRoute.stop(2)
     }
+
+
+
 }
